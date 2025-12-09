@@ -5,6 +5,13 @@ Finite differences are the differences between consecutive values in a sequence,
 ### **Structure of the code**
 The code defines a functions that can compute up to the second order approximation of the derivative of a function using either backward, forward or central differences. 
 
+**Disclaimer**
+All finite-difference schemes in this project are designed for functions of one real variable:
+
+𝑓: 𝑅→𝑅
+
+Multivariate differentiation (gradients, Jacobians, Hessians) and vector-valued functions are outside the scope of this project.
+
 ### **Parameters**
 
 1.  _x_ = {float}; the discrete point at which to determine the derivative of _f_
