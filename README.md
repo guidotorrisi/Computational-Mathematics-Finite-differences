@@ -1,5 +1,5 @@
 ### **Aim and purpose**
-Quick code to emulate [`approx.fprime`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.approx_fprime.html) in a simpler way using finite differences to approximates derivatives. 
+Quick code to emulate [`approx.fprime`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.approx_fprime.html) in a simpler way by using finite differences to approximates derivatives. 
 Finite differences are the differences between consecutive values in a sequence, which can be used to approximate derivatives for a function at discrete points. The method is fundamental in numerical analysis for approximating derivatives in fields like computational fluid dynamics and solving differential equations numerically. This code has been written as part of the study plan of my Computational Mathematics course. I might add a study of the approximation in the future. 
 
 ### **Structure of the code**
