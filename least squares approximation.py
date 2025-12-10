@@ -29,13 +29,9 @@ def inverse(M):
         pivot = A[i][i]
         if pivot == 0:
             raise ValueError("Matrix not invertible.")
-
-        # Normalize pivot row
         for j in range(n):
             A[i][j] /= pivot
             I[i][j] /= pivot
-
-        # Eliminate all other rows
         for r in range(n):
             if r != i:
                 factor = A[r][i]
@@ -49,12 +45,8 @@ class LeastSquaresElementary:
     def fit(self, X, y):
         X = X.tolist()
         y = y.reshape(-1,1).tolist()
-
-        # store raw data for summary()
         self.X_raw = X
         self.y_raw = y
-
-        # Add intercept
         X_aug = [[1] + row for row in X]
         self.X_aug = X_aug
 
@@ -73,33 +65,17 @@ class LeastSquaresElementary:
         return np.array(y_pred).flatten()
 
     def summary(self):
-        """
-        Print an elementary regression summary using only manual computations.
-        """
-        # Convert back to arrays for simple loop math
         X = self.X_aug
         y = np.array(self.y_raw).flatten()
-
-        # Predicted values
         y_pred = self.predict(np.array(self.X_raw))
-
-        # Residuals
         residuals = y - y_pred
-
-        # Residual variance σ² = RSS / (n - p)
         RSS = sum(residuals**2)
         n = len(y)
-        p = len(self.beta)  # includes intercept
+        p = len(self.beta)
         sigma2 = RSS / (n - p)
-
-        # Total Sum of Squares
         y_mean = sum(y)/n
         TSS = sum((y - y_mean)**2)
-
-        # R^2
         R2 = 1 - RSS/TSS
-
-        # --- Print summary ---
         print("============== LEAST SQUARES SUMMARY ==============")
         print("Coefficients:")
         for i, b in enumerate(self.beta):
